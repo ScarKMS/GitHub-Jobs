@@ -43,6 +43,11 @@ function mostrarVacantes(vacantes) {
         });
     } else {
 
+        const noResultado = document.createElement('p');
+        noResultado.classList.add('text-center', 'mt-10', 'text-gray-600', 'w-full');
+        resultado.classList.remove('grid');
+        noResultado.textContent = `No se encontraron empleos disponibles para ${document.querySelector('#busqueda').value}`;
+        resultado.appendChild(noResultado);
     }
 }
 
@@ -69,6 +74,7 @@ function limpiarHTML() {
 
 function spinner() {
     limpiarHTML();
+    resultado.classList.remove('grid');
     const cargando = document.createElement('div');
     cargando.classList.add('spinner');
     cargando.innerHTML = `
